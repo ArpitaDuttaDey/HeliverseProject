@@ -22,6 +22,7 @@ public class UITest {
 
 			// Search the product
 			TestUtility.search(driver, "Computer");
+			Thread.sleep(2000);
 
 			// Validate that search result is giving expected product
 			String result = driver.findElement(By.xpath("//img[@alt='Picture of Build your own computer']")).getText();
@@ -34,7 +35,7 @@ public class UITest {
 	}
 
 	@Test
-	public void runNaviagationTest() {
+	public void runNavigationTest() {
 
 		// Open the browser
 		WebDriver driver = TestUtility.screenLauncher();

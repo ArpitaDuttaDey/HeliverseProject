@@ -56,6 +56,7 @@ public class Validator {
 			element = wait.until(ExpectedConditions.visibilityOfElementLocated(navMenuLocator));
 			menuItems = element.findElements(By.tagName("a"));
 		}
+		System.out.println("Navigation Bar validation passed.");
 	}
 	
 	/**

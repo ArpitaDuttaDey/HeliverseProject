@@ -10,7 +10,7 @@ import Utility.TestUtility;
 public class FunctionalTest {
 
 	@Test
-	public void runScript() throws InterruptedException {
+	public void runScript() {
 
 		// Open the browser
 		WebDriver driver = TestUtility.screenLauncher();
@@ -39,9 +39,10 @@ public class FunctionalTest {
 			// Open shopping cart
 			driver.findElement(By.linkText("Shopping cart")).click();
 
-			// Validate if cart value price is correct
+			// Validate if cart value price is correct.
 			String actualProductPrice = driver.findElement(By.xpath("//span[@class='product-subtotal']")).getText();
 			Assert.assertEquals(actualProductPrice, "20.00");
+			System.out.println("Cart price value validation successful");
 
 			// Tick-out terms of services and click on checkout
 			driver.findElement(By.id("termsofservice")).click();
@@ -51,6 +52,7 @@ public class FunctionalTest {
 			String actualPage = driver.findElement(By.xpath("(//div[@class='step-title'])[1]")).getText();
 			System.out.println(actualPage);
 			Assert.assertEquals(actualPage, "1\nBilling Address");
+			System.out.println("Billing Page landing validation successful post checkout");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
